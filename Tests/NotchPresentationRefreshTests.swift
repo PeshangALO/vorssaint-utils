@@ -251,6 +251,7 @@ enum NotchPresentationRefreshContract {
         }
         func removeHiddenHoverMonitors() {}
         func toggle() { expanded.toggle() }
+        func openCountdownEvent() { expanded = true }
         func collapse() { expanded = false }
         var edgeClicksEnabled = false
         func syncScreenEdgeClicks() { edgeClicksEnabled = true }
