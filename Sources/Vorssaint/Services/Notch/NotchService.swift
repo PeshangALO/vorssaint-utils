@@ -1241,7 +1241,9 @@ final class NotchService: ObservableObject {
         let calendar = NotchCalendarService.shared
         calendar.revealing = calendar.countdown?.event.id
         openActivity(.calendar)
-        if !expanded || selected != .calendar { calendar.revealing = nil }
+        // Explore or an app panel opened in the page's place keeps no event
+        // for a later visit to Calendar.
+        if !expanded || selected != .calendar || showingSections || showingAppPanel { calendar.revealing = nil }
     }
 
     func open(_ module: NotchModule? = nil, pinned: Bool = false, takeFocus: Bool = true,
